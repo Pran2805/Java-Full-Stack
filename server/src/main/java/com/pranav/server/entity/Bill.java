@@ -20,7 +20,7 @@ public class Bill {
     private Float totalAmount;
     private Float paid;
     private LocalDate billDate;
-    private Patient patient;
+//    private Patient patient;
 }
 
 // todo (optional): If possible add payment functionality here using payment entity

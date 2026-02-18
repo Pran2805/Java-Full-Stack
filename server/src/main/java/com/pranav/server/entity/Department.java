@@ -23,5 +23,5 @@ public class Department {
     private String name;
     private String description;
 
-    private List<Doctor> doctors;
+//    private List<Doctor> doctors;
 }

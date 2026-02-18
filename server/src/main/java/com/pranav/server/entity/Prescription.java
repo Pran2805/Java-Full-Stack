@@ -17,7 +17,9 @@ public class Prescription {
 
     private String diagnosis;
     private String notes;
-    private Appointment appointment;
-    private Medicine medicine;
+
+//
+//    private Appointment appointment;
+//    private Medicine medicine;
 
 }

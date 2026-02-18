@@ -28,6 +28,8 @@ public class Doctor {
     private String email;
     private Long phone;
     private String specialization;
-    private Department department;
-    private List<Appointment> appointment;
+
+    // add many to many many to one relation
+//    private Department department;
+//    private List<Appointment> appointment;
 }

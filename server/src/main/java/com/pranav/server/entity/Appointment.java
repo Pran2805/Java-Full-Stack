@@ -23,8 +23,8 @@ public class Appointment {
 
 //    private Status status;
 
-    private Doctor doctor;
-    private Patient patient;
-    private Prescription prescription;
+//    private Doctor doctor;
+//    private Patient patient;
+//    private Prescription prescription;
 }
 

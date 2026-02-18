@@ -19,5 +19,6 @@ public class Medicine {
     private String dosage;
     private int frequency;
     private int durationInDays;
-    private Prescription prescription;
+
+//    private Prescription prescription;
 }

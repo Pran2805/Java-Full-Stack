@@ -39,6 +39,6 @@ public class Patient {
     private String address;
 
     //todo: link to appoinment table
-    private Appointment appointment; // reference to new table
+//    private Appointment appointment; // reference to new table
 
 }
