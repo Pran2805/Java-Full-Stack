@@ -1,9 +1,6 @@
 package com.pranav.server.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -15,6 +12,14 @@ import java.time.LocalDate;
 @ToString
 @Getter
 @Setter
+@Table(
+        uniqueConstraints = {
+                @UniqueConstraint(name = "unique_patient_email", columnNames = {"email"}),
+        },
+        indexes = {
+                @Index(name = "idx_patient_appointment", columnList = "appointment")
+        }
+)
 public class Patient {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
@@ -23,7 +28,7 @@ public class Patient {
     private String firstName;
     private String lastName;
 
-    private String email;
+    private String email; // unique
 
     private LocalDate dob;
 
@@ -34,6 +39,6 @@ public class Patient {
     private String address;
 
     //todo: link to appoinment table
-    private String appointment; // reference to new table
+    private Appointment appointment; // reference to new table
 
 }
