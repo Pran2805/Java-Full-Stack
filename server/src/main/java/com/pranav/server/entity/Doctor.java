@@ -3,17 +3,15 @@ package com.pranav.server.entity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.CreationTimestamp;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
 @Getter
 @Setter
 @Table(
-        uniqueConstraints = {
-                @UniqueConstraint(name = "unique_doctor_email", columnNames = {"email"}),
-                @UniqueConstraint(name = "unique_doctor_phone", columnNames = {"phone"}),
-        },
         indexes = {
                 @Index(name = "idx_patient_appointment", columnList = "appointment")
         }
@@ -25,11 +23,19 @@ public class Doctor {
 
     private String firstName;
     private String lastName;
+
+    @Column(unique = true, nullable = false)
     private String email;
+
+    @Column(unique = true, nullable = false)
     private Long phone;
     private String specialization;
 
-    // add many to many many to one relation
+    // todo: add many to many many to one relation
 //    private Department department;
 //    private List<Appointment> appointment;
+
+    @CreationTimestamp
+    @Column(updatable = false)
+    private LocalDateTime createdAt;
 }

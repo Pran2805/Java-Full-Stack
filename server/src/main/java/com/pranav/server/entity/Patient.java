@@ -1,25 +1,19 @@
 package com.pranav.server.entity;
 
+import com.pranav.server.entity.type.BloodGroupType;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
-// model
 @Entity
 @ToString
 @Getter
 @Setter
-@Table(
-        uniqueConstraints = {
-                @UniqueConstraint(name = "unique_patient_email", columnNames = {"email"}),
-        },
-        indexes = {
-                @Index(name = "idx_patient_appointment", columnList = "appointment")
-        }
-)
 public class Patient {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
@@ -28,17 +22,25 @@ public class Patient {
     private String firstName;
     private String lastName;
 
+    @Column(unique = true, nullable = false)
     private String email; // unique
 
     private LocalDate dob;
 
     private String gender;
 
+    @Column(nullable = false)
     private Long phone;
 
     private String address;
 
     //todo: link to appoinment table
-//    private Appointment appointment; // reference to new table
+//    private Appointment appointment; //todo: reference to new table
+    @CreationTimestamp
+    @Column(updatable = false)
+    private LocalDateTime createdAt;
+
+    @Enumerated(EnumType.STRING)
+    private BloodGroupType bloodGroup;
 
 }
