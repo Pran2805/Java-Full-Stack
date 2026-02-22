@@ -10,7 +10,11 @@ import java.time.LocalDateTime;
 public class PatientSignupReqDto {
     private String firstName;
     private String lastName;
+
+    private String username;
+
     private String email;
+    private String password;
 
     private LocalDate dob;
     private String gender;

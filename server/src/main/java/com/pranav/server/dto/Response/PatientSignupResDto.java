@@ -11,6 +11,7 @@ public class PatientSignupResDto {
     private String id;
     private String firstName;
     private String lastName;
+    private String username;
     private String email;
 
     private LocalDate dob;

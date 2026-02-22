@@ -34,17 +34,15 @@ public class User {
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private RoleType role; // Changed from 'roles' to 'role' (singular)
+    private RoleType role;
 
-    // One-to-One with Doctor (if user is a doctor)
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "doctor_id", unique = true)
-    private Doctor doctor; // Added: Links to doctor if role is DOCTOR
+    private Doctor doctor;
 
-    // One-to-One with Patient (if user is a patient)
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "patient_id", unique = true)
-    private Patient patient; // Added: Links to patient if role is PATIENT
+    private Patient patient;
 
     @CreationTimestamp
     @Column(updatable = false)
